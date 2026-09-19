@@ -1,0 +1,35 @@
+@OrderManagementSystem_HostAddress = http://localhost:5107
+
+### Test 1 - Successful Order
+
+POST {{OrderManagementSystem_HostAddress}}/api/orders
+Content-Type: application/json
+
+{
+  "customerName": "Nimal",
+  "product": "Laptop",
+  "quantity": 2
+}
+
+
+### Test 2 - Insufficient Stock
+
+POST {{OrderManagementSystem_HostAddress}}/api/orders
+Content-Type: application/json
+
+{
+  "customerName": "Nimal",
+  "product": "Laptop",
+  "quantity": 100
+}
+
+### Test 3 - Product Not Found
+
+POST {{OrderManagementSystem_HostAddress}}/api/orders
+Content-Type: application/json
+
+{
+  "customerName": "Nimal",
+  "product": "UnknownProduct",
+  "quantity": 1
+}
